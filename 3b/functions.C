@@ -74,10 +74,10 @@ void LeftRightCombine(Image &leftInput, Image &rightInput, Image &output){
 		for (j=0; j < rightInput.width; j++)
 		{
 			index_input= rightInput.width * i + j;
-			index_output = img.width * i + leftInput.width + j;
-			img.data[index_output].red=leftInput.data[index_input].red;
-			img.data[index_output].green=leftInput.data[index_input].green;
-			img.data[index_output].blue=leftInput.data[index_input].blue;
+			index_output = img.width * i + rightInput.width + j;
+			img.data[index_output].red=rightInput.data[index_input].red;
+			img.data[index_output].green=rightInput.data[index_input].green;
+			img.data[index_output].blue=rightInput.data[index_input].blue;
 		}
 	}
 	output = img;
