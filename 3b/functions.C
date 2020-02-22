@@ -84,15 +84,15 @@ void LeftRightCombine(Image &leftInput, Image &rightInput, Image &output){
 }
 
 void TopBottomCombine(Image &topInput, Image &bottomInput, Image &output){
-	Image img(topInput.width + bottomInput.width, topInput.height + bottomInput.height);
+	Image img(topInput.width, topInput.height + bottomInput.height);
 	int i, j;
 	int index, index_input, index_output;
 	for (i = 0; i < topInput.height; i++)
     {
         for (j=0; j < topInput.width; j++)
         {
-        	index_output= img.width * i + j;
         	index_input = topInput.width * i + j;
+        	index_output= img.width * i + j;
             img.data[index_output].red=topInput.data[index_input].red;
             img.data[index_output].green=topInput.data[index_input].green;
             img.data[index_output].blue=topInput.data[index_input].blue;
@@ -102,14 +102,15 @@ void TopBottomCombine(Image &topInput, Image &bottomInput, Image &output){
     {
         for (j=0; j < bottomInput.width; j++)
 		{
-        	index_output= img.width * (i+topInput.height) +  topInput.width+ j;
         	index_input = bottomInput.width * i + j;
+        	index_output= img.width * (i+topInput.height) +  j;
 			img.data[index_output].red=bottomInput.data[index_input].red;
 			img.data[index_output].green=bottomInput.data[index_input].green;
 			img.data[index_output].blue=bottomInput.data[index_input].blue;
 		}
 	}
 	output = img;
+	fprintf(stdout, "TB input top %dx%d input bottom %dx%d output %dx%d", topInput.height, topInput.width, bottomInput.height, bottomInput.width, output.height, output.width);
 }
 
 void Blend(Image &input1, Image &input2, double factor, Image &output){
