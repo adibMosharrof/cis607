@@ -9,7 +9,8 @@
 
 int main(int argc, char *argv[])
 {
-    PNMreader reader("3C_input.pnm");
+    PNMreader reader(argv[1]);
+//    PNMreader reader("3C_input.pnm");
     PNMwriter writer;
     Shrinker shrinker1;
     Shrinker shrinker2;
@@ -50,5 +51,6 @@ int main(int argc, char *argv[])
     tbcombine2.Execute();
     blender.Execute();
 
-    writer.Write("3C_output.pnm");
+//    writer.Write("3C_output.pnm");
+    writer.Write(argv[2]);
 }
