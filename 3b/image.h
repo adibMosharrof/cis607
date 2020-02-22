@@ -11,6 +11,8 @@ struct Image{
 	Image(int width, int height);
     int width, height;
     Pixel *data;
+    void ResetSize(int width, int height);
+
 };
 
 #endif

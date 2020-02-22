@@ -110,7 +110,7 @@ void TopBottomCombine(Image &topInput, Image &bottomInput, Image &output){
 		}
 	}
 	output = img;
-	fprintf(stdout, "TB input top %dx%d input bottom %dx%d output %dx%d", topInput.height, topInput.width, bottomInput.height, bottomInput.width, output.height, output.width);
+//	fprintf(stdout, "TB input top %dx%d input bottom %dx%d output %dx%d", topInput.height, topInput.width, bottomInput.height, bottomInput.width, output.height, output.width);
 }
 
 void Blend(Image &input1, Image &input2, double factor, Image &output){
