@@ -5,14 +5,21 @@ class Pixel{
 public:
     unsigned char red, green, blue;
     Pixel();
+    Pixel(char red, char green, char blue);
 };
 
 class Image{
+private:
+    int width, height;
+    Pixel *data;
 public:
 	Image();
 	Image(int width, int height);
-    int width, height;
-    Pixel *data;
+
+    int GetWidth(){return this->width;}
+    int GetHeight(){return this->height;}
+    void SetData(int index, Pixel p);
+    Pixel GetData(int index);
 };
 
 #endif

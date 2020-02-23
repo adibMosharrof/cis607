@@ -9,6 +9,8 @@ public:
 	Image img;
 	virtual void Execute() = 0;
 	Image* GetOutput();
+
+	void SetImage(Image img){this->img = img;}
 };
 
 #endif

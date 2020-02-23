@@ -22,8 +22,10 @@ public:
 };
 
 class Blender : public Filter{
-public:
+private:
 	double factor;
+public:
 	void Execute();
 	void SetFactor(double factor){this->factor = factor;}
+	double GetFactor(){return this->factor;}
 };
