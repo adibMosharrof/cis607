@@ -33,9 +33,9 @@ void PNMreader::Execute(){
 	}
 
 	Image img (width, height);
-
-	fread(img.data, sizeof(Pixel), width*height, f);
-	this->img = img;
+	fread(img.GetData(), sizeof(Pixel), width*height, f);
+//	fprintf(stdout, "Reader %dx%d\n", img.GetWidth(), img.GetHeight());
+	this->SetOutput(img);
 	fclose(f);
 
 //	cout << "width is " << this->img.width << endl;

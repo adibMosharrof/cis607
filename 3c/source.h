@@ -3,14 +3,15 @@
 #include <image.h>
 
 class Source{
+private:
+	Image img;
+
 public:
 	Source();
 	virtual ~Source();
-	Image img;
 	virtual void Execute() = 0;
 	Image* GetOutput();
-
-	void SetImage(Image img){this->img = img;}
+	void SetOutput(Image img){this->img = img;}
 };
 
 #endif

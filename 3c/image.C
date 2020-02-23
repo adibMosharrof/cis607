@@ -7,6 +7,10 @@ Pixel::Pixel(char red, char green, char blue){
 	this->blue = blue;
 }
 
+Pixel::Pixel(){
+
+}
+
 Image::Image(){
 
 };
@@ -23,4 +27,12 @@ void Image::SetData(int i, Pixel p){
 
 Pixel Image::GetData(int i){
 	return this->data[i];
+}
+
+Pixel* Image::GetData(){
+	return this->data;
+}
+
+void Image::SetData(Pixel p){
+	this->data = &p;
 }

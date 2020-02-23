@@ -19,7 +19,9 @@ public:
     int GetWidth(){return this->width;}
     int GetHeight(){return this->height;}
     void SetData(int index, Pixel p);
+    void SetData(Pixel p);
     Pixel GetData(int index);
+    Pixel* GetData();
 };
 
 #endif
