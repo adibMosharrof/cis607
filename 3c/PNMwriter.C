@@ -12,7 +12,7 @@ void PNMwriter::Write(char *filename){
         return;
     }
     Image img1 = *this->img1;
-	cout << "width in writer " << img1.width << endl;
+	fprintf(stdout, "writer input height %d width %d\n", img1.height, img1.width);
     fprintf (f, "P6\n");
     fprintf (f, "%d %d\n", img1.width, img1.height);
     fprintf (f, "%d\n", 255);

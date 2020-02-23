@@ -50,10 +50,10 @@ void LRCombine::Execute(){
 		for (j=0; j < rightInput.width; j++)
 		{
 			index_input= rightInput.width * i + j;
-			index_output = output.width * i + leftInput.width + j;
-			output.data[index_output].red=leftInput.data[index_input].red;
-			output.data[index_output].green=leftInput.data[index_input].green;
-			output.data[index_output].blue=leftInput.data[index_input].blue;
+			index_output = output.width * i + rightInput.width + j;
+			output.data[index_output].red=rightInput.data[index_input].red;
+			output.data[index_output].green=rightInput.data[index_input].green;
+			output.data[index_output].blue=rightInput.data[index_input].blue;
 		}
 	}
 	this->img = output;
@@ -63,7 +63,7 @@ void LRCombine::Execute(){
 void TBCombine::Execute(){
 	Image topInput = *this->img1;
 	Image bottomInput = *this->img2;
-	Image img(topInput.width + bottomInput.width, topInput.height + bottomInput.height);
+	Image img(topInput.width , topInput.height + bottomInput.height);
 	int i, j;
 	int index, index_input, index_output;
 	for (i = 0; i < topInput.height; i++)
@@ -81,8 +81,8 @@ void TBCombine::Execute(){
     {
         for (j=0; j < bottomInput.width; j++)
 		{
-        	index_output= img.width * (i+topInput.height) +  topInput.width+ j;
         	index_input = bottomInput.width * i + j;
+        	index_output= img.width * (i+topInput.height) +  j;
 			img.data[index_output].red=bottomInput.data[index_input].red;
 			img.data[index_output].green=bottomInput.data[index_input].green;
 			img.data[index_output].blue=bottomInput.data[index_input].blue;
@@ -98,8 +98,6 @@ void Blender::Execute(){
 	Image img(input1.width, input1.height);
 	double factor = this->factor;
 	int i,j;
-	fprintf(stdout, "Blender input1 %d x %d input2 %d x %d output %d x %d\n", input1.height, input1.width, input2.height, input2.width, img.height, img.width);
-	return ;
 	int index_input, index_output;
 	for (i = 0; i < input1.height; i++)
     {
@@ -113,4 +111,5 @@ void Blender::Execute(){
         }
     }
 	this->img = img;
+	fprintf(stdout, "Blender input1 %d x %d input2 %d x %d output %d x %d\n", input1.height, input1.width, input2.height, input2.width, img.height, img.width);
 }

@@ -3,7 +3,6 @@
 using namespace std;
 
 Image* Source::GetOutput(){
-//	cout << "width  " << this->img.width << endl;
 	return &this->img;
 }
 
