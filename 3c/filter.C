@@ -24,7 +24,7 @@ void Shrinker::Execute(){
         }
     }
     this-> img = output;
-	fprintf(stdout, "Shrinker input height %d width %d output height %d width %d\n", img.height, img.width, output.height, output.width);
+//	fprintf(stdout, "Shrinker input height %d width %d output height %d width %d\n", img.height, img.width, output.height, output.width);
 }
 
 void LRCombine::Execute(){
@@ -57,7 +57,7 @@ void LRCombine::Execute(){
 		}
 	}
 	this->img = output;
-	fprintf(stdout, "LR Combine input1 %d x %d input2 %d x %d output %d x %d\n", leftInput.height, leftInput.width, rightInput.height, rightInput.width, img.height, img.width);
+//	fprintf(stdout, "LR Combine input1 %d x %d input2 %d x %d output %d x %d\n", leftInput.height, leftInput.width, rightInput.height, rightInput.width, img.height, img.width);
 }
 
 void TBCombine::Execute(){
@@ -89,7 +89,7 @@ void TBCombine::Execute(){
 		}
 	}
 	this->img = img;
-	fprintf(stdout, "TB Combine input1 %d x %d input2 %d x %d output %d x %d\n", topInput.height, topInput.width, bottomInput.height, bottomInput.width, img.height, img.width);
+//	fprintf(stdout, "TB Combine input1 %d x %d input2 %d x %d output %d x %d\n", topInput.height, topInput.width, bottomInput.height, bottomInput.width, img.height, img.width);
 }
 
 void Blender::Execute(){
@@ -111,5 +111,5 @@ void Blender::Execute(){
         }
     }
 	this->img = img;
-	fprintf(stdout, "Blender input1 %d x %d input2 %d x %d output %d x %d\n", input1.height, input1.width, input2.height, input2.width, img.height, img.width);
+//	fprintf(stdout, "Blender input1 %d x %d input2 %d x %d output %d x %d\n", input1.height, input1.width, input2.height, input2.width, img.height, img.width);
 }
