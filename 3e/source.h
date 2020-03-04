@@ -1,6 +1,6 @@
 #ifndef SOURCE_H
 #define SOURCE_H
-#include <image.h>
+#include "image.h"
 #include <iostream>
 using namespace std;
 

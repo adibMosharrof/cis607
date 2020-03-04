@@ -1,4 +1,4 @@
-#include <sink.h>
+#include "sink.h"
 
 class PNMwriter: public Sink{
 public:

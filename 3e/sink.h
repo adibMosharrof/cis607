@@ -1,6 +1,6 @@
 #ifndef SINK_H
 #define SINK_H
-#include <image.h>
+#include "image.h"
 
 class Sink{
 private:

@@ -1,6 +1,9 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <iostream>
+using namespace std;
+
 class Source;
 
 class Pixel{
@@ -15,6 +18,7 @@ private:
     int width, height;
     Pixel *data;
     Source *source;
+    friend std::ostream& operator<<(std::ostream&, const Image&);
 public:
 	Image();
 	Image(int width, int height);

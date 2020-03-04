@@ -2,7 +2,7 @@ SRC=main3E.C image.C sink.C source.C PNMreader.C PNMwriter.C filter.C
 OBJ=$(SRC:.C=.o)
 
 prog: $(OBJ)
-	g++ -g3 $(OBJ) -o proj3E
+	g++ $(OBJ) -o proj3E
 
 .C.o: $<
 	g++ -I. -c $<

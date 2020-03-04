@@ -1,14 +1,14 @@
-#include <PNMreader.h>
+#include "PNMreader.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
-#include <image.h>
+#include "image.h"
 using namespace std;
 
 PNMreader::PNMreader(char *filename){
 	this->filename = filename;
-	GetOutput()->SetSource(this);
+//	GetOutput()->SetSource(this);
 
 }
 PNMreader::~PNMreader(){
@@ -26,7 +26,6 @@ void PNMreader::Execute(){
 	char magicNum[128];
 	int  width, height, maxval;
 
-
 	if (f == NULL)
 	{
 		fprintf(stderr, "Unable to open file %s\n", filename);
@@ -41,6 +40,7 @@ void PNMreader::Execute(){
 	}
 
 	Image img (width, height);
+    cout <<"reader "<< img << endl;
 	fread(img.GetData(), sizeof(Pixel), width*height, f);
 	this->SetOutput(img);
 	fclose(f);

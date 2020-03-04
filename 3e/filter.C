@@ -1,10 +1,9 @@
-#include <filter.h>
+#include "filter.h"
 #include <typeinfo>
 #include <iostream>
 using namespace std;
 
 Filter::Filter(){
-	GetOutput()->SetSource(this);
 }
 
 void Filter::Update(){
@@ -35,6 +34,7 @@ void Shrinker::Execute(){
         	output.SetData(index_output, img.GetData(index_input));
         }
     }
+    cout <<"shrinker "<< output << endl;
     this->SetOutput(output);
 //	fprintf(stdout, "Shrinker input height %d width %d output height %d width %d\n", img.height, img.width, output.height, output.width);
 }

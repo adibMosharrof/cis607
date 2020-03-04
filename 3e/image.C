@@ -1,6 +1,6 @@
-#include <image.h>
+#include "image.h"
 #include <stdlib.h>
-#include <source.h>
+#include "source.h"
 #include <typeinfo>
 #include <iostream>
 using namespace std;
@@ -20,6 +20,7 @@ Image::Image(){
 };
 
 Image::Image(int w, int h){
+	source = NULL;
 	width = w;
 	height = h;
 	data = (Pixel*) malloc(width * height * sizeof(Pixel));
@@ -50,4 +51,8 @@ void Image::Update(){
 void Image::SetSource(Source *src){
 //	cout << "setting img source " << typeid(*src).name() << endl;
 	this->source = src;
+}
+
+std::ostream& operator<<(std::ostream &strm, const Image &a) {
+  return strm << "Image height " << a.height << " width " << a.width << endl;
 }

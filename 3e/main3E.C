@@ -1,6 +1,6 @@
-#include <PNMreader.h>
-#include <PNMwriter.h>
-#include <filter.h>
+#include "PNMreader.h"
+#include "PNMwriter.h"
+#include "filter.h"
 #include <iostream>
 using namespace std;
 

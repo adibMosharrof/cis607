@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include <image.h>
-#include <source.h>
+#include "image.h"
+#include "source.h"
 
 class PNMreader: public Source{
 public:
