@@ -1,11 +1,16 @@
-SRC=main3E.C image.C sink.C source.C PNMreader.C PNMwriter.C filter.C
-OBJ=$(SRC:.C=.o)
+CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
 
-prog: $(OBJ)
-	g++ $(OBJ) -o proj3E
+OBJS =		main3E.o image.o sink.o source.o PNMreader.o PNMwriter.o filter.o
 
-.C.o: $<
-	g++ -I. -c $<
+LIBS =
+
+TARGET =	proj3E
+
+$(TARGET):	$(OBJS)
+	g++ -o $(TARGET) $(OBJS) $(LIBS)
+
+prog:	$(TARGET)
+
 
 clean:
-	rm *.o proj3E
+	rm -f $(OBJS) $(TARGET)
