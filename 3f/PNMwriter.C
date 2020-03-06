@@ -13,6 +13,7 @@ void PNMwriter::Write(char *filename){
         printf ("Unable to open '%s' for writing!\n", filename);
         return;
     }
+    CheckNullInput();
     Image img1 = *this->GetInput();
 //	fprintf(stdout, "writer input height %d width %d\n", img1.GetHeight(), img1.GetWidth());
     cout << "writer "<< img1 << endl;

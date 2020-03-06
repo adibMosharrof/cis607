@@ -8,6 +8,6 @@ public:
 	PNMreader(char *filename);
 	~PNMreader();
 	virtual void Execute();
-	virtual const char *SourceName();
+	const char* SourceName() { return "PNMreader"; }
 	virtual void Update();
 };

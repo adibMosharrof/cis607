@@ -1,16 +1,15 @@
-#include "PNMreader.h"
+#include <PNMreader.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
 #include <typeinfo>
-#include "image.h"
-#include "logging.h"
+#include <image.h>
+#include <logging.h>
 using namespace std;
 
 PNMreader::PNMreader(char *filename){
 	this->filename = filename;
-//	GetOutput()->SetSource(this);
 
 }
 PNMreader::~PNMreader(){
@@ -18,15 +17,15 @@ PNMreader::~PNMreader(){
 }
 
 void PNMreader::Update(){
+	char msg[128];
+	sprintf(msg, "%s: about to execute", SourceName());
+	Logger::LogEvent(msg);
 	this->Execute();
-}
-
-const char *PNMreader::SourceName(){
-	return typeid(this).name();
+	sprintf(msg, "%s: done executing", SourceName());
+    Logger::LogEvent(msg);
 }
 
 void PNMreader::Execute(){
-	cout << "PNMReader Execute" << endl;
 	FILE *f = fopen(this->filename, "r");
 	char magicNum[128];
 	int  width, height, maxval;
@@ -45,7 +44,6 @@ void PNMreader::Execute(){
 	}
 
 	Image img (width, height);
-    cout <<"reader "<< img << endl;
 	fread(img.GetData(), sizeof(Pixel), width*height, f);
 	this->SetOutput(img);
 	fclose(f);

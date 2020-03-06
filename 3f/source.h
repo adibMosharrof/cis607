@@ -10,7 +10,6 @@ private:
 
 protected:
 	virtual void Execute() = 0;
-	virtual void Update()=0;
 
 public:
 	Source();
@@ -19,6 +18,7 @@ public:
 	void SetOutput(Image img){this->img = img;}
 
 	virtual const char *SourceName()=0;
+	virtual void Update()=0;
 };
 
 #endif

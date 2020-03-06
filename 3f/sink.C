@@ -1,4 +1,5 @@
-#include "sink.h"
+#include <sink.h>
+#include <logging.h>
 #include <typeinfo>
 #include <iostream>
 using namespace std;
@@ -25,4 +26,22 @@ Sink::Sink(){
 
 Sink::~Sink(){
 
+}
+
+void Sink::CheckNullInput(){
+	if(!this->GetInput()){
+			char msg[128];
+			sprintf(msg, "%s: input1 has not been provided", SinkName());
+			DataFlowException e(SinkName(), msg);
+			throw e;
+	}
+}
+
+void Sink::CheckNullInput2(){
+	if(!this->GetInput2()){
+			char msg[128];
+			sprintf(msg, "%s: input2 has not been provided", SinkName());
+			DataFlowException e(SinkName(), msg);
+			throw e;
+	}
 }

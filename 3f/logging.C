@@ -19,5 +19,6 @@ void Logger::Finalize(){
 }
 
 DataFlowException::DataFlowException(const char *type, const char *error){
-	sprintf(msg, "(%s): %s", type, error);
+	sprintf(msg, "Throwing exception: (%s): %s", type, error);
+	Logger::LogEvent(msg);
 }
