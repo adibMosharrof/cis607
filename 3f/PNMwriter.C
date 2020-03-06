@@ -6,7 +6,6 @@ using namespace std;
 
 
 void PNMwriter::Write(char *filename){
-	cout << "PNMWriter Execute "<< endl;
     FILE *f = fopen(filename, "wb");
     if (f == NULL)
     {
@@ -15,8 +14,7 @@ void PNMwriter::Write(char *filename){
     }
     CheckNullInput();
     Image img1 = *this->GetInput();
-//	fprintf(stdout, "writer input height %d width %d\n", img1.GetHeight(), img1.GetWidth());
-    cout << "writer "<< img1 << endl;
+
     fprintf (f, "P6\n");
     fprintf (f, "%d %d\n", img1.GetWidth(), img1.GetHeight());
     fprintf (f, "%d\n", 255);
@@ -26,5 +24,5 @@ void PNMwriter::Write(char *filename){
 }
 
 const char *PNMwriter::SinkName(){
-	return typeid(this).name();
+	return "PNMwriter";
 }

@@ -1,5 +1,8 @@
-#include "source.h"
-#include "sink.h"
+#ifndef FILTER_H
+#define FILTER_H
+
+#include <source.h>
+#include <sink.h>
 #include <typeinfo>
 
 class Filter: public Source, public Sink{
@@ -86,3 +89,11 @@ protected:
 	void Execute();
 	const char *FilterName(){ return "Color";};
 };
+
+class CheckSum: public Sink{
+public:
+	const char* SinkName() { return "CheckSum";}
+	void OutputCheckSum(const char* filename);
+};
+
+#endif

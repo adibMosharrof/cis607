@@ -1,6 +1,7 @@
 #include <filter.h>
 #include <logging.h>
 #include <typeinfo>
+#include <stdio.h>
 #include <iostream>
 using namespace std;
 
@@ -286,7 +287,7 @@ void Rotate::Execute(){
         for (j=0; j < width; j++)
         {
         	index_input= width * i + j;
-        	index_output= height * i + height - j -1;
+        	index_output= height * j + height - i -1;
         	output.SetData(index_output, img.GetData(index_input));
         }
     }
@@ -320,12 +321,27 @@ void Blur::Execute(){
         		Pixel p7 = input1.GetData(index+width);
         		Pixel p8 = input1.GetData(index+width+1);
 
-        		input_pixel.red = (p1.red+p2.red+p3.red+p4.red+p5.red+p6.red+p7.red+p8.red)/8;
-        		input_pixel.green = (p1.green+p2.green+p3.green+p4.green+p5.green+p6.green+p7.green+p8.green)/8;
-        		input_pixel.blue = (p1.blue+p2.blue+p3.blue+p4.blue+p5.blue+p6.blue+p7.blue+p8.blue)/8;
+        		input_pixel.red = p1.red/8+p2.red/8+p3.red/8+p4.red/8+p5.red/8+p6.red/8+p7.red/8+p8.red/8;
+        		input_pixel.green = p1.green/8+p2.green/8+p3.green/8+p4.green/8+p5.green/8+p6.green/8+p7.green/8+p8.green/8;
+        		input_pixel.blue = p1.blue/8+p2.blue/8+p3.blue/8+p4.blue/8+p5.blue/8+p6.blue/8+p7.blue/8+p8.blue/8;
         		img.SetData(index, input_pixel);
         	}
         }
     }
     this->SetOutput(img);
+}
+
+void CheckSum::OutputCheckSum(const char* filename){
+	CheckNullInput();
+	Image img = *this->GetInput();
+	unsigned char r=0, g =0, b=0;
+	for (int i=0; i < img.GetHeight()* img.GetWidth(); i++){
+		Pixel p1 = img.GetData(i);
+		r+= p1.red;
+		g+= p1.green;
+		b+= p1.blue;
+	}
+	FILE *file = fopen(filename, "w");
+	fprintf(file, "CHECKSUM: %d, %d, %d\n", r, g, b);
+	fclose(file);
 }
