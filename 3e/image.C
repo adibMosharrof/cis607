@@ -65,6 +65,6 @@ void Image::SetSource(Source *src){
 	this->source = src;
 }
 
-std::ostream& operator<<(std::ostream &strm, const Image &a) {
-  return strm << "Image height " << a.height << " width " << a.width << endl;
-}
+//std::ostream& operator<<(std::ostream &strm, const Image &a) {
+//  return strm << "Image height " << a.height << " width " << a.width << endl;
+//}
