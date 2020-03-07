@@ -16,10 +16,13 @@ void Filter::Update(){
 		img2->Update();
 	}
 	this->Execute();
+	if(img1)
+		img1->DeleteSource();
+	if(img2)
+		img2->DeleteSource();
 }
 
 void Shrinker::Execute(){
-	cout << "Shrinker Execute" << endl;
 	Image img = *this->GetInput();
 	Image output(img.GetWidth()/2, img.GetHeight()/2);
     int i, j;
@@ -34,13 +37,11 @@ void Shrinker::Execute(){
         	output.SetData(index_output, img.GetData(index_input));
         }
     }
-    cout <<"shrinker "<< output << endl;
     this->SetOutput(output);
 //	fprintf(stdout, "Shrinker input height %d width %d output height %d width %d\n", img.height, img.width, output.height, output.width);
 }
 
 void LRCombine::Execute(){
-	cout << "LRCombine Execute" << endl;
 	Image leftInput = *this->GetInput();
 	Image rightInput = *this->GetInput2();
 	Image output(leftInput.GetWidth() + rightInput.GetWidth(), leftInput.GetHeight());
@@ -66,11 +67,9 @@ void LRCombine::Execute(){
 		}
 	}
     this->SetOutput(output);
-//	fprintf(stdout, "LR Combine input1 %d x %d input2 %d x %d output %d x %d\n", leftInput.height, leftInput.width, rightInput.height, rightInput.width, img.height, img.width);
 }
 
 void TBCombine::Execute(){
-	cout << "TBCombine Execute" << endl;
 	Image topInput = *this->GetInput();
 	Image bottomInput = *this->GetInput2();
 	Image img(topInput.GetWidth() , topInput.GetHeight() + bottomInput.GetHeight());
@@ -95,11 +94,9 @@ void TBCombine::Execute(){
 		}
 	}
     this->SetOutput(img);
-//	fprintf(stdout, "TB Combine input1 %d x %d input2 %d x %d output %d x %d\n", topInput.height, topInput.width, bottomInput.height, bottomInput.width, img.height, img.width);
 }
 
 void Blender::Execute(){
-	cout << "Blender Execute" << endl;
 	Image input1 = *this->GetInput();
 	Image input2 = *this->GetInput2();
 	Image img(input1.GetWidth(), input1.GetHeight());
@@ -121,6 +118,5 @@ void Blender::Execute(){
         }
     }
     this->SetOutput(img);
-//	fprintf(stdout, "Blender input1 %d x %d input2 %d x %d output %d x %d\n", input1.height, input1.width, input2.height, input2.width, img.height, img.width);
 }
 

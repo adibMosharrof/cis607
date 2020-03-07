@@ -23,6 +23,8 @@ public:
 	Image();
 	~Image();
 	Image(int width, int height);
+	void Delete();
+	void DeleteSource();
 
     void Update();
     void SetSource(Source *src);

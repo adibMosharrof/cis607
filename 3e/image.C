@@ -15,13 +15,22 @@ Pixel::Pixel(){
 
 }
 Image::Image(){
-
 }
 
 Image::~Image(){
+}
+
+void Image::Delete(){
+	if(!data)
+		return;
 	delete [] data;
 	data = NULL;
 };
+
+void Image::DeleteSource(){
+	if(source)
+		source->Delete();
+}
 
 Image::Image(int w, int h){
 	source = NULL;

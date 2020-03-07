@@ -12,16 +12,15 @@ PNMreader::PNMreader(char *filename){
 
 }
 PNMreader::~PNMreader(){
-	delete this->filename;
+	delete[] filename;
+	filename = NULL;
 }
 
 void PNMreader::Update(){
-//	cout << "in reader update" << endl;
 	this->Execute();
 }
 
 void PNMreader::Execute(){
-	cout << "PNMReader Execute" << endl;
 	FILE *f = fopen(this->filename, "r");
 	char magicNum[128];
 	int  width, height, maxval;
@@ -40,12 +39,9 @@ void PNMreader::Execute(){
 	}
 
 	Image img (width, height);
-    cout <<"reader "<< img << endl;
 	fread(img.GetData(), sizeof(Pixel), width*height, f);
 	this->SetOutput(img);
 	fclose(f);
 
-//	fprintf(stdout, "Reader %dx%d\n", img.GetWidth(), img.GetHeight());
-//	cout << "width is " << this->img.width << endl;
 }
 
