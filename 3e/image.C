@@ -20,16 +20,16 @@ Image::Image(){
 //Image::~Image(){
 //}
 
-void Image::Delete(){
+void Image::Destroy(){
 	if(!data)
 		return;
-	delete [] data;
+	delete[] data;
 	data = NULL;
 };
 
-void Image::DeleteSource(){
+void Image::Clean(){
 	if(source)
-		source->Delete();
+		source->Clean();
 }
 
 Image::Image(int w, int h){
