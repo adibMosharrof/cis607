@@ -21,7 +21,7 @@ private:
     friend std::ostream& operator<<(std::ostream&, const Image&);
 public:
 	Image();
-	~Image();
+//	~Image();
 	Image(int width, int height);
 	void Delete();
 	void DeleteSource();

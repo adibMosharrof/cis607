@@ -17,8 +17,8 @@ Pixel::Pixel(){
 Image::Image(){
 }
 
-Image::~Image(){
-}
+//Image::~Image(){
+//}
 
 void Image::Delete(){
 	if(!data)
