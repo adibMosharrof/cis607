@@ -6,7 +6,7 @@ class PNMreader: public Source{
 public:
 	char *filename;
 	PNMreader(char *filename);
-	~PNMreader();
+//	~PNMreader();
 	virtual void Execute();
 	virtual void Update();
 };
