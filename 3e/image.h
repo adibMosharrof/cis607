@@ -18,7 +18,7 @@ private:
     int width, height;
     Pixel *data;
     Source *source;
-    friend std::ostream& operator<<(std::ostream&, const Image&);
+//    friend std::ostream& operator<<(std::ostream&, const Image&);
 public:
 	Image();
 //	~Image();
