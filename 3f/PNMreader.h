@@ -5,7 +5,7 @@
 class PNMreader: public Source{
 public:
 	char *filename;
-	PNMreader(char *filename);
+	PNMreader(char *path);
 	~PNMreader();
 	virtual void Execute();
 	const char* SourceName() { return "PNMreader"; }

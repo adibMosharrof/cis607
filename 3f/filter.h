@@ -1,8 +1,8 @@
 #ifndef FILTER_H
 #define FILTER_H
 
-#include <source.h>
-#include <sink.h>
+#include "source.h"
+#include "sink.h"
 #include <typeinfo>
 
 class Filter: public Source, public Sink{

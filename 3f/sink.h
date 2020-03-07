@@ -4,8 +4,8 @@
 
 class Sink{
 private:
-	const Image* img1;
-	const Image* img2;
+	Image* img1;
+	Image* img2;
 public:
 	Sink();
 	~Sink();
