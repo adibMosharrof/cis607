@@ -61,7 +61,7 @@ void LRCombine::Execute(){
 		for (j=0; j < rightInput.GetWidth(); j++)
 		{
 			index_input= rightInput.GetWidth() * i + j;
-			index_output = output.GetWidth() * i + rightInput.GetWidth() + j;
+			index_output = output.GetWidth() * i + leftInput.GetWidth() + j;
 			output.SetData(index_output, rightInput.GetData(index_input));
 		}
 	}
