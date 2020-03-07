@@ -21,5 +21,5 @@ void PNMwriter::Write(char *filename){
 
     fwrite(img1.GetData(), sizeof(Pixel), img1.GetWidth() * img1.GetHeight(), f);
     fclose(f);
-    img1.Destroy();
+    img1.Delete();
 }

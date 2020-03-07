@@ -17,13 +17,12 @@ void Filter::Update(){
 	}
 	this->Execute();
 	if(img1)
-		img1->Clean();
+		img1->DeleteSource();
 	if(img2)
-		img2->Clean();
+		img2->DeleteSource();
 }
 
 void Shrinker::Execute(){
-	cout << "Shrinker execute" << endl;
 	Image img = *this->GetInput();
 	Image output(img.GetWidth()/2, img.GetHeight()/2);
     int i, j;

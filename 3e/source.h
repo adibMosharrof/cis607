@@ -18,7 +18,7 @@ public:
 	void SetOutput(Image img){this->img = img;}
 
 	virtual void Update()=0;
-	void Clean(){ img.Destroy();}
+	void Delete(){ img.Delete();}
 };
 
 #endif
