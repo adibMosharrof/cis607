@@ -14,9 +14,13 @@ Pixel::Pixel(char red, char green, char blue){
 Pixel::Pixel(){
 
 }
-
 Image::Image(){
 
+}
+
+Image::~Image(){
+	delete [] data;
+	data = NULL;
 };
 
 Image::Image(int w, int h){
@@ -49,7 +53,6 @@ void Image::Update(){
 }
 
 void Image::SetSource(Source *src){
-//	cout << "setting img source " << typeid(*src).name() << endl;
 	this->source = src;
 }
 
