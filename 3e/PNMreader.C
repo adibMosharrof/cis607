@@ -11,10 +11,10 @@ PNMreader::PNMreader(char *filename){
 //	GetOutput()->SetSource(this);
 
 }
-PNMreader::~PNMreader(){
-	delete[] filename;
-	filename = NULL;
-}
+//PNMreader::~PNMreader(){
+//	delete[] filename;
+//	filename = NULL;
+//}
 
 void PNMreader::Update(){
 	this->Execute();
