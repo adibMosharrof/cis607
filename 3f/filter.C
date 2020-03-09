@@ -7,7 +7,7 @@ using namespace std;
 
 Filter::Filter(){
 }
-
+int Filter::numCalls = 0;
 void Filter::MatchHeight(Image img1, Image img2){
 	if (img1.GetHeight() != img2.GetHeight()){
 		char msg[128];
@@ -32,6 +32,13 @@ void Filter::MatchDimensions(Image img1, Image img2){
 }
 
 void Filter::Update(){
+	numCalls ++;
+	if (numCalls> 1000){
+		 char msg[128];
+		 sprintf(msg, "Fell in infinite loop");
+		 DataFlowException e(SourceName(), msg);
+		 throw e;
+	}
 	Image* img1 = GetInput();
 	Image* img2 = GetInput2();
 	char msg[128];

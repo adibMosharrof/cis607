@@ -8,6 +8,7 @@
 class Filter: public Source, public Sink{
 public:
 	Filter();
+	static int numCalls;
 	void Update();
 	virtual const char *FilterName()=0;
 	const char *SourceName(){ return FilterName();};
