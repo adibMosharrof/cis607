@@ -24,7 +24,7 @@ void Filter::Update(){
 
 void Shrinker::Execute(){
 	Image img = *this->GetInput();
-	Image output;
+	Image output = *this->GetOutput();
 	output.ResetSize(img.GetWidth()/2, img.GetHeight()/2);
     int i, j;
     int index_output;
@@ -38,14 +38,14 @@ void Shrinker::Execute(){
         	output.SetData(index_output, img.GetData(index_input));
         }
     }
-    this->SetOutput(output);
+//    this->SetOutput(output);
 //	fprintf(stdout, "Shrinker input height %d width %d output height %d width %d\n", img.height, img.width, output.height, output.width);
 }
 
 void LRCombine::Execute(){
 	Image leftInput = *this->GetInput();
 	Image rightInput = *this->GetInput2();
-	Image output;
+	Image output = *this->GetOutput();
 	output.ResetSize(leftInput.GetWidth() + rightInput.GetWidth(), leftInput.GetHeight());
 	int i, j;
 	int index, index_input, index_output;
@@ -68,13 +68,13 @@ void LRCombine::Execute(){
 			output.SetData(index_output, rightInput.GetData(index_input));
 		}
 	}
-    this->SetOutput(output);
+//    this->SetOutput(output);
 }
 
 void TBCombine::Execute(){
 	Image topInput = *this->GetInput();
 	Image bottomInput = *this->GetInput2();
-	Image img;
+	Image img = *this->GetOutput();
 	img.ResetSize(topInput.GetWidth() , topInput.GetHeight() + bottomInput.GetHeight());
 	int i, j;
 	int index, index_input, index_output;
@@ -96,13 +96,13 @@ void TBCombine::Execute(){
         	img.SetData(index_output, bottomInput.GetData(index_input));
 		}
 	}
-    this->SetOutput(img);
+//    this->SetOutput(img);
 }
 
 void Blender::Execute(){
 	Image input1 = *this->GetInput();
 	Image input2 = *this->GetInput2();
-	Image img;
+	Image img = *this->GetOutput();
 	img.ResetSize(input1.GetWidth(), input1.GetHeight());
 	double factor = this->GetFactor();
 	int i,j;
@@ -121,6 +121,6 @@ void Blender::Execute(){
         	img.SetData(index_output, out);
         }
     }
-    this->SetOutput(img);
+//    this->SetOutput(img);
 }
 

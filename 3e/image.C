@@ -33,13 +33,6 @@ void Image::DeleteSource(){
 		source->Delete();
 }
 
-Image::Image(int w, int h){
-//	source = NULL;
-//	width = w;
-//	height = h;
-//	data = (Pixel*) malloc(width * height * sizeof(Pixel));
-};
-
 void Image::ResetSize(int w, int h){
 	Delete();
 	width = w;

@@ -22,7 +22,6 @@ private:
 public:
 	Image();
 //	~Image();
-	Image(int width, int height);
 	void Delete();
 	void DeleteSource();
 
