@@ -24,7 +24,7 @@ void Filter::Update(){
 
 void Shrinker::Execute(){
 	Image input = *this->GetInput();
-	this->img.ResetSize(img.GetWidth()/2, img.GetHeight()/2);
+	this->img.ResetSize(input.GetWidth()/2, input.GetHeight()/2);
 
     int i, j;
     int index_output;
