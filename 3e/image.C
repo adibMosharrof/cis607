@@ -15,6 +15,7 @@ Pixel::Pixel(){
 
 }
 Image::Image(){
+	source = NULL;
 }
 
 //Image::~Image(){
@@ -23,7 +24,7 @@ Image::Image(){
 void Image::Delete(){
 	if(!data)
 		return;
-//	delete [] data;
+	delete [] data;
 	data = NULL;
 };
 
