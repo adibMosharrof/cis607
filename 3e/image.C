@@ -39,6 +39,13 @@ Image::Image(int w, int h){
 	data = (Pixel*) malloc(width * height * sizeof(Pixel));
 };
 
+void Image::ResetSize(int w, int h){
+	this->Delete();
+	width = w;
+	height = h;
+	data = (Pixel*) malloc(width * height * sizeof(Pixel));
+}
+
 void Image::SetData(int i, Pixel p){
 	this->data[i] = p;
 }

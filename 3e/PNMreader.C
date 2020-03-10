@@ -37,10 +37,9 @@ void PNMreader::Execute(){
 		fprintf(stderr, "Unable to read file %s, due to format mismatch\n", filename);
 		return ;
 	}
-
-	Image img (width, height);
-	fread(img.GetData(), sizeof(Pixel), width*height, f);
-	this->SetOutput(img);
+	Image* img = this->GetOutput();
+	img->ResetSize(width, height);
+	fread(img->GetData(), sizeof(Pixel), width*height, f);
 	fclose(f);
 
 }

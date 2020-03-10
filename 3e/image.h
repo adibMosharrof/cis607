@@ -38,6 +38,8 @@ public:
     Pixel GetData(int index);
     Pixel* GetData();
 
+    void ResetSize(int w, int h);
+
 };
 
 #endif
