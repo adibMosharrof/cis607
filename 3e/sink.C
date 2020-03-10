@@ -22,8 +22,3 @@ Sink::Sink(){
 	this->img1 = NULL;
 	this->img2 = NULL;
 }
-
-Sink::~Sink(){
-	this->img1 = NULL;
-	this->img2 = NULL;
-}

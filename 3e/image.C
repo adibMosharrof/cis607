@@ -23,7 +23,7 @@ Image::Image(){
 void Image::Delete(){
 	if(!data)
 		return;
-	delete [] data;
+//	delete [] data;
 	data = NULL;
 };
 

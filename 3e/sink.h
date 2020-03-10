@@ -8,7 +8,6 @@ private:
 	Image* img2;
 public:
 	Sink();
-	~Sink();
 
 	void SetInput(Image* img);
 	void SetInput2(Image* img);
