@@ -23,7 +23,7 @@ Image::Image(){
 void Image::Delete(){
 	if(!data)
 		return;
-//	delete [] data;
+	delete [] data;
 	data = NULL;
 };
 
@@ -34,9 +34,9 @@ void Image::DeleteSource(){
 
 Image::Image(int w, int h){
 	source = NULL;
-	width = w;
-	height = h;
-	data = (Pixel*) malloc(width * height * sizeof(Pixel));
+//	width = w;
+//	height = h;
+//	data = (Pixel*) malloc(width * height * sizeof(Pixel));
 };
 
 void Image::ResetSize(int w, int h){

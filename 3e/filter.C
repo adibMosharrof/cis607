@@ -25,6 +25,7 @@ void Filter::Update(){
 void Shrinker::Execute(){
 	Image img = *this->GetInput();
 	Image output(img.GetWidth()/2, img.GetHeight()/2);
+	output.ResetSize(img.GetWidth()/2, img.GetHeight()/2);
     int i, j;
     int index_output;
     int index_input;
@@ -45,6 +46,7 @@ void LRCombine::Execute(){
 	Image leftInput = *this->GetInput();
 	Image rightInput = *this->GetInput2();
 	Image output(leftInput.GetWidth() + rightInput.GetWidth(), leftInput.GetHeight());
+	output.ResetSize(leftInput.GetWidth() + rightInput.GetWidth(), leftInput.GetHeight());
 	int i, j;
 	int index, index_input, index_output;
 	for (i = 0; i < leftInput.GetHeight(); i++)
@@ -73,6 +75,7 @@ void TBCombine::Execute(){
 	Image topInput = *this->GetInput();
 	Image bottomInput = *this->GetInput2();
 	Image img(topInput.GetWidth() , topInput.GetHeight() + bottomInput.GetHeight());
+	img.ResetSize(topInput.GetWidth() , topInput.GetHeight() + bottomInput.GetHeight());
 	int i, j;
 	int index, index_input, index_output;
 	for (i = 0; i < topInput.GetHeight(); i++)
@@ -100,6 +103,7 @@ void Blender::Execute(){
 	Image input1 = *this->GetInput();
 	Image input2 = *this->GetInput2();
 	Image img(input1.GetWidth(), input1.GetHeight());
+	img.ResetSize(input1.GetWidth(), input1.GetHeight());
 	double factor = this->GetFactor();
 	int i,j;
 	int index_input, index_output;
