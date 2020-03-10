@@ -6,12 +6,12 @@ using namespace std;
 
 class Source{
 private:
-	Image img;
 
 protected:
 	virtual void Execute() = 0;
 
 public:
+	Image img;
 	Source();
 	virtual ~Source();
 	Image* GetOutput(){ return &this->img; }
